@@ -9,7 +9,6 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
 
 void nums_prims(int);
 void Goldbach(int*, int);
@@ -60,21 +59,14 @@ void Goldbach(int *s, int g)
 {
     printf("\n");
     int i, j, k;
-    bool flag = false;
     for (i = 0; i < g; i ++)
         if (s[i] > g) break;
     
-    //Volta uma posição no vetor para usar o maior primo abaixo de g.
-    //Moves the array one position back to use the greater prime smaller than g.
-    --i;
-    for (j = i; j >= 0; j--) {
-        for (k = 0; k < i; k++) {
-            if (s[j] + s[k] == g) {
-                flag = true;
-                break;
-            }
-        }
-        if (flag) break;
-    }
-    printf("%d + %d = %d\n", s[k], s[j], g);
+    //Mostra as possibilidades de soma entre primos para resultar no número par escolhido.
+    //Shows the possible sums between primes that result in the chosen even number.
+    for (j = i; j >= 0; j--) 
+        for (k = 0; k < i; k++) 
+            if (s[j] + s[k] == g) 
+                printf("%d + %d = %d\n", s[k], s[j], g);
+    
 }
