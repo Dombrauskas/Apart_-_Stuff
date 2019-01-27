@@ -6,7 +6,6 @@
  * The Goldbach's Conjecture says that any even number greater than 2 may be written
  * as the sum of two prime numbers.
 */
-
 #include <stdio.h>
 #include <string.h>
 
@@ -52,7 +51,7 @@ void nums_prims(int a)
 /*
  * Função para encontrar uma soma possível (pode haver mais de uma) de
  * primos para formar a expressão.
- * Function to encounter a possible sum (there might have plus than one)
+ * Function to encounter a possible sum (there might have more than one)
  * of primes to make the expression.
 */
 void Goldbach(int *s, int g)
@@ -63,10 +62,9 @@ void Goldbach(int *s, int g)
         if (s[i] > g) break;
     
     //Mostra as possibilidades de soma entre primos para resultar no número par escolhido.
-    //Shows the possible sums between primes that result in the chosen even number.
-    for (j = i; j >= 0; j--) 
-        for (k = 0; k < i; k++) 
+    //Shows the possible sums amoung primes that result in the chosen even number.
+    for (j = i - 1; j >= 0; j--) 
+        for (k = 0; k < i - 1; k++) 
             if (s[j] + s[k] == g) 
-                printf("%d + %d = %d\n", s[k], s[j], g);
-    
+                printf("%d + %d = %d\n", s[k], s[j], g);   
 }
