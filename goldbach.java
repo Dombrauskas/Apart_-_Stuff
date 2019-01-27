@@ -8,7 +8,7 @@ class Primos {
     int i, j, p = 0;
     int[] v;
     
-    int nums_prims(int a) {
+    void nums_prims(int a) {
         v = new int[a];
         int c = 0;
         
@@ -18,16 +18,13 @@ class Primos {
             
             if (p <= 2) v[c++] = i;
             p = 0;
-        }            
-        
-        p = a;
+        }
         
         System.out.println("Números primmos entre 1 e " + a);
         for (i = 0; i < v.length; i++) {
             if (v[i] == 0) break;
             System.out.println(i + 1 + "º número primo " + v[i]);
         }
-        return a;
     }
 }
 
@@ -64,7 +61,7 @@ class goldbach {
     public static void main(String args[]) {
         Conjectura cg = new Conjectura();
         
-        cg.nums_prims(333);
-        cg.conj_Gold(cg, 99);        
+        cg.nums_prims(100);
+        cg.conj_Gold(cg, 99);
     }
 }
