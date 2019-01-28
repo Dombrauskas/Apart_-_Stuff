@@ -23,7 +23,7 @@ int main()
 
 /*
  * Preenche um vetor com todos os números primos dentro do limite escolhido.
- * Fill an array with all the prime numbers within the boundaries chosen.
+ * Fill an array with all the prime numbers within the chosen boundaries.
 */
 void nums_prims(int a)
 {
@@ -40,8 +40,10 @@ void nums_prims(int a)
     for (i = 0; v[i] != '\0'; i++)
         printf("Numero primo #%02d: %d\n", i+1, v[i]);
         
-    printf("Digite um numero par: ");
-    scanf("%d", &u);
+    do {
+        printf("Digite um numero par: ");
+        scanf("%d", &u);
+    } while (u > a);
     //Se o número for ímpar ele será decrementado antes de ser passado para a função.
     //If the number is odd it shall be decremented before being passed to the function.
     if (u % 2 == 0) Goldbach(v, u);
@@ -63,8 +65,8 @@ void Goldbach(int *s, int g)
     
     //Mostra as possibilidades de soma entre primos para resultar no número par escolhido.
     //Shows the possible sums amoung primes that result in the chosen even number.
-    for (j = i - 1; j >= 0; j--) 
-        for (k = 0; k < i - 1; k++) 
+    for (j = i; j >= 0; j--) 
+        for (k = 0; k < j + 1; k++)
             if (s[j] + s[k] == g) 
-                printf("%d + %d = %d\n", s[k], s[j], g);   
+                printf("%d + %d = %d\n", s[k], s[j], g);
 }
