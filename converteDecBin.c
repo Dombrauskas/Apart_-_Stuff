@@ -20,12 +20,11 @@ int main()
             bin[i] = 1;
             n = n / 2;
         }
-        if (i % 8 == 0) 
-            printf(" ");
     }
 
-    for (i = 0; i <= 7; i++) {
+    for (i = 0; i < 16; i++) {
         printf("%d", bin[i]);
+        if (i % 8 == 0) printf(" ");
     }
 
     return 0;
