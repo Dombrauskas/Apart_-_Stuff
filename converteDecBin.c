@@ -1,6 +1,6 @@
 /**
  * 
- * @autor Mauricio Maurício Freire
+ * @autor Maurício Freire
  * Mostra a representação binária de um dado número.
  * Shows the binary representation of a chosen number.
 */
@@ -26,6 +26,5 @@ int main()
         printf("%d", bin[i]);
         if (i % 8 == 0) printf(" ");
     }
-
     return 0;
 }
