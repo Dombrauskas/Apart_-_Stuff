@@ -30,6 +30,7 @@ while m > 0:
 for i in bin:
     print(i, end="")
 '''
+
 while m > 0:
     if m > 16:
         m //= 16
