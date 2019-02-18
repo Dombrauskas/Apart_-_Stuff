@@ -22,7 +22,7 @@ def rev_fat(fat):
         if fat == 1:
             return i
         
-f = int(input())
+f = int(input("Digite um número: "))
 r = rev_fat(f)
 if r is None:
     print(f,"não é fatorial de nenhum número!")
