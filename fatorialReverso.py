@@ -24,7 +24,7 @@ def rev_fat(fat):
         
 f = int(input())
 r = rev_fat(f)
-if r == None:
+if r is None:
     print(f,"não é fatorial de nenhum número!")
 else:
     print("{} é fatorial de {}".format(f,r))
