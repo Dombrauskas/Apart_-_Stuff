@@ -12,7 +12,7 @@ def rev_fat(fat):
         return None
         
     for i in range(1,v):
-        print("{}\t/\t{}\t=\t{}".format(fat, i, int(fat / i)))
+        #print("{}\t/\t{}\t=\t{}".format(fat, i, int(fat / i)))
         
         r = fat % i;
         if (r != 0):
