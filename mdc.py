@@ -39,7 +39,7 @@ def mdc(x, y):
 # Prevents the usage of two equal numbers.
 e = True
 while e:
-    s = int(input())
-    r = int(input())
+    s = int(input('Informe o 1º número:'))
+    r = int(input('Informe o 2º número:'))
 
     e = mdc(s, r)
