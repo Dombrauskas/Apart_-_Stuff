@@ -8,12 +8,13 @@
 */
 
 #include <stdio.h>
+#include <stdbool.h>
 
-void mdc(int, int);
+bool mdc(int, int);
 
 int main()
 {
-    int s, r;
+    int s, r, x;
     
     // Impede a escolha de dois números iguais.
     // Prevents the usage of two equal numbers.
@@ -22,14 +23,21 @@ int main()
         scanf("%d", &s);
         printf("Informe o segundo termo: ");
         scanf("%d", &r);
-        
-        mdc(s,r);
-    } while (s == r);
+
+        x = mdc(s, r);
+    } while (!x);
     return 0;
 }
 
-void mdc(int x, int y)
+bool mdc(int x, int y)
 {
+    // Impede a seleção de números iguais ou que um deles seja zero.
+    // Prevents the selection of equal numbers or that one of them be zero.
+    if ((x == 0 || y == 0) || (x == y)) {
+      printf("\nImpossível calcular o MDC\n");
+      x = y;
+    }
+    
     int a, b, mx, mn;
     // Define o maior número.
     // Define the highest number.
@@ -39,16 +47,19 @@ void mdc(int x, int y)
     } else if (x < y) {
         mx = y;
         mn = x;
-    } else 
-        printf("Informe números diferentes!");
+    } else {
+        printf("Informe números diferentes!\n\n");
+        return false;
+    }
     
     a = mx / mn;
     b = mx % mn;
-    //printf("%d / %d = %d", mx, mn, b);
-    // Se b for diferente de zero o MDC ainda não alcançado.
+    // Se b for diferente de zero o MDC ainda não foi alcançado.
     // If b is non-zero the GCD has not been reached yet.
     if (b != 0)
         mdc(mn, b);
     else
         printf("Mdc %d", mn);
+    
+    return true;
 }
