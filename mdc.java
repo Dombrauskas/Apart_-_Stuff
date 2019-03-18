@@ -15,6 +15,13 @@ class mdc {
     // Define o maior número.
     // Define the highest number.
     mdc(int x, int y) {
+        // Impede a seleção de números iguais ou negativos.
+        // Prevents the choice of equal or negative numbers.
+        if (x < 0 | y < 0) {
+            System.out.println("Impossível calcular o MDC!");
+            x = y;
+        }
+        
         if (x > y) {
             mx = x;
             mn = y;
@@ -56,14 +63,18 @@ public class Principal {
         
         // Impede a escolha de dois números iguais.
         // Prevents the usage of two equal numbers.
-        do {
-            System.out.print("Informe o 1º número: ");
-            s = ler.nextInt();
-            System.out.print("Informe o 2º número: ");
-            r = ler.nextInt();
-            
-            mdc ob = new mdc(s, r);         
-            ob.Comum(s, r);
-        } while (s == r);
+        try {
+            do {
+                System.out.print("Informe o 1º número: ");
+                s = ler.nextInt();
+                System.out.print("Informe o 2º número: ");
+                r = ler.nextInt();
+
+                mdc ob = new mdc(s, r);         
+                ob.Comum(s, r);
+            } while (s == r);
+        } catch (Exception e) {
+            System.out.println("\nInforme apenas números inteiros\n" + e);
+        }
     }
 }
