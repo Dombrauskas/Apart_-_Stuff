@@ -1,15 +1,21 @@
-'''
- '
- ' autor Maurício Freire
- ' Cálculo do Máximo Divisor Comum consiste em encontrar o maior termo comum a
- ' dois (ou mais) números capaz de dividir ambos.
- ' Calcule of the Greatest Common Divisor consists in finding the greatest value
- ' common to two (or more) number that is able to divide both.
-'''
+"""
+ "
+ " Autor Maurício Freire
+ " Cálculo do Máximo Divisor Comum consiste em encontrar o maior termo comum a
+ " dois (ou mais) números capaz de dividir ambos.
+ " Calcule of the Greatest Common Divisor consists in finding the greatest value
+ " common to two (or more) number that is able to divide both.
+"""
 
 def mdc(x, y):
-    # Define o maior número.
-    # Define the highest number.
+    # Impede a seleção de números iguais ou negativos.
+    # Prevents the choice of equal or negative numbers.
+    if x < 0 or y < 0:
+        print("Impossível calcular o MDC!")
+        x = y
+        
+    # Define o maior número, ou os define como iguais.
+    # Define the highest number, or define them as equals.
     if x > y:
         mx = x
         mn = y
@@ -17,7 +23,7 @@ def mdc(x, y):
         mx = y
         mn = x
     else:
-        print('Informe números diferentes!')
+        print('Informe números diferentes!\n')
         return True
     
     # Evita uma possível divisão por zero.
@@ -31,15 +37,18 @@ def mdc(x, y):
         if b != 0:
             mdc(mn, b)
         else:
-            print("Mdc {}".format(mn))
+            print("MDC {}".format(mn))
     except ZeroDivisionError:
-        print("Mdc {}".format(mn))
+        print("MDC não existe!")
 
-# Impede a escolha de dois números iguais.
-# Prevents the usage of two equal numbers.
 e = True
 while e:
-    s = int(input('Informe o 1º número:'))
-    r = int(input('Informe o 2º número:'))
-
-    e = mdc(s, r)
+    # Garante que sejam informados apenas inteiros.
+    # Ensures that just integers to be informed.
+    try:
+        s = int(input('Informe o 1º número: '))
+        r = int(input('Informe o 2º número: '))
+        e = mdc(s, r)
+    except ValueError:
+        print("Informe números inteiros apenas!")
+        e = True
