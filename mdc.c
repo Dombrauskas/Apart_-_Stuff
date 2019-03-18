@@ -23,7 +23,7 @@ int main()
         scanf("%d", &s);
         printf("Informe o segundo termo: ");
         scanf("%d", &r);
-
+        
         x = mdc(s, r);
     } while (!x);
     return 0;
@@ -31,16 +31,16 @@ int main()
 
 bool mdc(int x, int y)
 {
-    // Impede a seleção de números iguais ou que um deles seja zero.
-    // Prevents the selection of equal numbers or that one of them be zero.
-    if ((x == 0 || y == 0) || (x == y)) {
+    // Impede a seleção de números iguais ou negativos.
+    // Prevents the choice of equal or negative numbers.
+    if (x < 0 || y < 0) {
       printf("\nImpossível calcular o MDC\n");
       x = y;
     }
     
     int a, b, mx, mn;
-    // Define o maior número.
-    // Define the highest number.
+    // Define o maior número, ou os define como iguais.
+    // Define the highest number, or define them as equals.
     if (x > y) {
         mx = x;
         mn = y;
@@ -52,8 +52,16 @@ bool mdc(int x, int y)
         return false;
     }
     
-    a = mx / mn;
-    b = mx % mn;
+    // Evita uma possível divisão por zero.
+    // Avoid a possible ZeroDivisionError.
+    if (mn != 0) {
+        a = mx / mn;
+        b = mx % mn;
+    } else {
+        printf("MDC não existe!\n");
+        return false;
+    }
+    
     // Se b for diferente de zero o MDC ainda não foi alcançado.
     // If b is non-zero the GCD has not been reached yet.
     if (b != 0)
