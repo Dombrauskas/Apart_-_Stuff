@@ -1,8 +1,15 @@
+"""
+ "
+ " Autor Maurício Freire
+ " Métoda da Posição Falsa (Secante)
+ " False Position Method (Secant)
+"""
+
 import math
 from math import cos as C
 from math import log as ln
 
-def Xn(a, b, ffa, fb):
+def Xn(a, b, fa, fb):
     xn = ((a * fb - b * fa) / (fb - fa))
     if xn > 0:
         raiz(xn, b)
