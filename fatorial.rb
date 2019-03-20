@@ -1,7 +1,9 @@
-#
-# autor Maurício Freire
-# Calcula o fatorial de um número.
-# Calculates the fatorial of a number.
+=begin
+ *
+ * autor Maurício Freire
+ * Calcula o fatorial de um número.
+ * Calculates the fatorial of a number.
+=end
 
 def fatorial(n)
     if n == 1 
