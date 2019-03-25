@@ -42,8 +42,8 @@ def raiz(x, y):
     else:
         Xn(x, y, fx, fy, y, x)
 
-a = int(input("Intervalo: "))
-b = int(input("Intervalo: "))
+a = int(input("Intervalo A: "))
+b = int(input("Intervalo B: "))
 
 try:
     raiz(a, b)
