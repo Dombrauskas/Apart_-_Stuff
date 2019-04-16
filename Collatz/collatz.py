@@ -16,6 +16,8 @@
 def Collatz(x):
     if x % 2 == 0:
         print("{} / 2 = {}".format(x, x // 2))
+        # (//) Pega apenas o quociente da divisão.
+        # (//) Takes only the quocient of the division.
         x //= 2
     else:
         print("{} * 3 + 1 = {}".format(x, x * 3 + 1))
