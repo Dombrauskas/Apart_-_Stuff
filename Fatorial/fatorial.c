@@ -13,7 +13,7 @@ int main()
     int f;
     printf("Digite um numero: ");
     scanf("%d", &f);
-    printf("%d\n", f = fatorial(f));
+    printf("%d\n", fatorial(f));
     return 0;
 }
 
