@@ -13,4 +13,4 @@ def fatorial(n)
 end
 
 n = gets.chomp.to_i
-puts "Fatorial de #{n} = #{fatorial(n)}"
+puts "#{n}! = #{fatorial(n)}"
