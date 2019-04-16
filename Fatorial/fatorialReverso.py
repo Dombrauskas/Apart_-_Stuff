@@ -1,10 +1,11 @@
-'''
- ' author Maurício Freire.
- ' Dado um número o programa verifica se este é fatorial 
- ' de algum número.
- ' Given a number the program verifies whether it is the
- ' factorial product of any number.
-'''
+"""
+ "
+ " autor Maurício Freire.
+ " Dado um número o programa verifica se este é fatorial 
+ " de algum número.
+ " Given a number the program verifies whether it is the
+ " factorial product of any number.
+"""
 
 def rev_fat(fat):
     v = fat
