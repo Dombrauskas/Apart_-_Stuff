@@ -1,16 +1,16 @@
-'''
- '
- ' autor Maurício Freire
- ' A Conjectura de Goldbach diz que todo número par maior que 2 pode ser obtido pela
- ' soma de dois números primos inferiores a ele.
- ' The Goldbach's Conjecture says that any even number greater than 2 may be written
- ' as the sum of two prime numbers.
-'''
+"""
+ "
+ " autor Maurício Freire
+ " A Conjectura de Goldbach diz que todo número par maior que 2 pode ser obtido pela
+ " soma de dois números primos inferiores a ele.
+ " The Goldbach's Conjecture says that any even number greater than 2 may be written
+ " as the sum of two prime numbers.
+"""
 
-'''
- ' Preenche um vetor com todos os números primos dentro do limite escolhido.
- ' Fill an array with all the prime numbers within the chosen boundaries.
-'''
+"""
+ " Preenche um vetor com todos os números primos dentro do limite escolhido.
+ " Fill an array with all the prime numbers within the chosen boundaries.
+"""
 def primos(p):
     x = 0
     c = x
@@ -26,12 +26,12 @@ def primos(p):
     print(v)
     Goldbach(v, p)
 
-'''
- ' Função para encontrar uma soma possível (pode haver mais de uma) de
- ' primos para formar a expressão.
- ' Function to encounter a possible sum (there might have more than one)
- ' of primes to make the expression.
-'''
+"""
+ " Função para encontrar uma soma possível (pode haver mais de uma) de
+ " primos para formar a expressão.
+ " Function to encounter a possible sum (there might have more than one)
+ " of primes to make the expression.
+"""
 def Goldbach(v, p):
     g = (int(input("\nDigite um número inferior a ")))
     print(p, ">>>", g)
