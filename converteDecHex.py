@@ -1,8 +1,9 @@
-#
-# autor Maurício Freire
-#                       Ainda em construção...
-#
-#
+"""
+ "
+ " autor Maurício Freire
+ "                       Ainda em construção...
+ " 
+"""
 
 def hex(m):
     print(m)
