@@ -1,9 +1,9 @@
-'''
- '
- ' @autor Maurício Freire
- ' Mostra a representação binária de um dado número.
- ' Shows the binary representation of a chosen number.
-'''
+"""
+ "
+ " @autor Maurício Freire
+ " Mostra a representação binária de um dado número.
+ " Shows the binary representation of a chosen number.
+"""
 
 n = (int(input("Digite um número: ")))
 bin = []
