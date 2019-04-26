@@ -5,7 +5,6 @@
  " False Position Method (Secant)
 """
 
-import math
 from math import cos as C
 from math import log as ln
 
