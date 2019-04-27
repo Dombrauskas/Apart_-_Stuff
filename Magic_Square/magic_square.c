@@ -2,11 +2,10 @@
  * 
  * autor Maurício Freire
  * Quadrado Mágico: a soma dos números da primeira linha, da diagonal principal
- * e a da coluna à direita devem ser iguais.
+ * e a da coluna à esquerda devem ser iguais.
  * Magic Square: the sum of the numbers in the first line, the main diagonal and
- * the right column must be the same.
+ * the left column must be the same.
 */
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -32,8 +31,8 @@ void magic_square(int n, int mat[][n])
     int i, j, dia, lin, col;
     dia = lin = col = 0;
 
-    //Soma os valores da 1ª linha, diagonal principal e coluna direita.
-    //Sum up the values of the 1st line, main diagonal and right column.
+    //Soma os valores da 1ª linha, diagonal principal e coluna esquerda.
+    //Sum up the values of the 1st line, the main diagonal and left column.
     for (i = 0; i < n; i++) {
         for (j = 0; j < n; j++) {
             if (i == j) dia += mat[i][j];
@@ -49,5 +48,5 @@ void magic_square(int n, int mat[][n])
 
     printf("\nSoma da linha superior \t\t= %d\n", lin);
     printf("Soma da diagonal principal \t= %d\n", dia);
-    printf("Soma da coluna direita \t\t= %d\n", col);
+    printf("Soma da coluna esquerda \t= %d\n", col);
 }
