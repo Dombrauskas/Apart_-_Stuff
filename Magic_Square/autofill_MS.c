@@ -9,10 +9,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdbool.h>
 
 void magic_square(int, int [][*]);
-bool alakazan(int *, int *, int, int, int[][*]);
+int alakazan(int *, int *, int, int, int[][*]);
 
 int main()
 {
@@ -22,6 +21,7 @@ int main()
     int mat[n][n];
 
     for (i = 0; i < n; i++)
+        //for (j = 0; j < n; j++)
         do {
             printf("[0 - 9] -> ");
             scanf("%d", &mat[0][i]);
@@ -33,8 +33,7 @@ int main()
 
 void magic_square(int n, int mat[][n])
 {
-    int i, j, dia, lin, col;
-    bool e = false;
+    int i, j, dia, lin, col, e = 0;
     lin = 0;
 
     //Preenche a parte não digitada pelo usuário da matriz.
@@ -65,8 +64,7 @@ void magic_square(int n, int mat[][n])
         printf("\n");
         printf("%2d %2d %2d\n", col, dia, lin);
         if (col != dia && col != lin) e = alakazan(&col, &dia, lin, n, mat);
-        printf("%2d %2d %2d\n", col, dia, lin);
-    } while (!e);
+    } while (e == 0);
 
     if (dia == lin && lin == col)
         printf("\nMatriz Mágica!\n");
@@ -79,43 +77,54 @@ void magic_square(int n, int mat[][n])
 
 //Corrige os números da matriz.
 //Fix the matrix numbers up.
-bool alakazan(int *col, int *dia, int lin, int n, int mat[][n])
+int alakazan(int *col, int *dia, int lin, int n, int mat[][n])
 {
-    int i = 0, j = 0;
+    int i = 1, j = 1, x;
 
-    *col = lin - *col;
-    while (*col != 0) {
-        if (mat[n-(++i)][0] + *col < 0) {
-            mat[n-i][0] += *col;
-            *col = mat[n-i][0] + *col;
-        }
-        if (mat[n-(++i)][0] + *col > 9) {
-            mat[n-i][0] -= *col;
-            *col = mat[n-i][0] - *col;
-        }
+    x = lin - *col;
+    while (0 < 10) {
+        mat[n-i][0] += x;
+        if (mat[n-i][0] > 9) {
+            x = mat[n-i][0] - 9;
+            mat[n-i][0] -= x;
+        } else if (mat[n-i][0] < 0) {
+            mat[n-i][0] += -x;
+        } else break;
+        i++;
+        if (i ==n - 1) i = 1;
+        /*
+        if (i == n - 1) {
+            i = 1;
+            if (x % 2 == 0) x %= (n - 1);
+            for (i = 1; i < n - 1; i++)
+                mat[n-i][0] -= x;
+            mat[n-i][0] -= (x + 1);
+        }*/
     }
 
-    *dia = lin - *dia;
-    while (*dia != 0) {
-        if (mat[n-(++i)][n-(++j)] + *dia < 0) {
-            mat[n-i][n-j] += *dia;
-            *dia = mat[n-i][n-j] + *dia;
-        }
-        if (mat[n-(++i)][n-(++j)] + *dia > 9) {
-            mat[n-i][n-j] -= *dia;
-            *dia = mat[n-i][n-j] - *dia;
-        }
+    x = lin - *dia;
+    while (0 < 10) {
+        mat[n-j][n-j] += x;
+        if (mat[n-j][n-j] > 9) {
+            x = mat[n-j][n-j] - 9;
+            mat[n-j][n-j] -= x;
+        } else if (mat[n-j][n-j] < 0) {
+            mat[n-j][n-j] += -x;
+        } else break;
+        j++;
+        if (j == n - 1) j = 1;
     }
 
+    printf("\n");
     *col = *dia = 0;
     for (i = 0; i < n; i++) {
         for (j = 0; j < n; j++) {
-            if (i == j) *dia += mat[i][j];
             if (j == 0) *col += mat[i][j];
+            if (i == j) *dia += mat[i][j];
             printf("%d ", mat[i][j]);
         }
         printf("\n");
     }
-    printf("\n");
-    return true;
+
+    return 1;
 }
