@@ -1,9 +1,9 @@
 /**
  *
- * @author Mauricio
+ * @author Maurício
  * Idem ao homônimo .c
  * Akin to homonym .c
- */
+*/
 class Primos {
     int i, j, p = 0;
     int[] v;
