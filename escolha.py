@@ -1,4 +1,4 @@
-#import os
+import os
 
 #os.system('clear') or None # Limpa a tela do console.
 
@@ -28,7 +28,7 @@ def celeiro():
         # No segundo andar
         if x.capitalize() == 'S':
             print("\nPela janela do segundo andar você vê um homem segurando um machado indo rumo ao celeiro.")
-            print("Fugir ou Esconder-se?\nF / E")
+            print("Fugir ou Esconder-se?\nF / e - Sem")
             
             while True:
                 x = input()
@@ -68,7 +68,7 @@ def celeiro():
                         if x.capitalize() == 'F' or x.capitalize() == 'J':
                             break
                     # No palheiro
-                    if x.capitalize() is 'F':
+                    if x.capitalize() == 'F':
                         print("Você se joga no monte de feno e espeta a mão. Você achou uma agulha no palheiro.")
                         return "Vencedor"
                     # Na janela
@@ -85,7 +85,7 @@ def celeiro():
                     if x.capitalize() == 'C' or x.capitalize() == 'O':
                         break
                     # Na caminhonete
-                    if x.capitalize() is 'C':
+                    if x.capitalize() == 'C':
                         print("Você se entra na caçamba da caminhonete e põe a capa por cima.\nO Homem com o Machado está por perto e você olha na caçamba por algo para se defender se preciso.")
                         print("Sem querer você chuta a lateral da caminhote e o alarme dispara\no machado penetra a caçamba, mas não te acerta. Então a capa é rasgada e novamente você escapa.")
                         print("Saltar para fora ou ficar na caminhonete? S / F")
@@ -95,7 +95,7 @@ def celeiro():
                             if x.capitalize() == 'S' or x.capitalize() == 'F':
                                 break
                             # Saindo...
-                            if x.capitalize() is 'S':
+                            if x.capitalize() == 'S':
                                 print("No desespero você salta para fora o que surpreende o Homem com o Machado e vai rumo a oficina.\nNão há saída lá, então você pega uma enxada.")
                                 print("O machado vai em sua direção e você interpõe a enxada no reflexo de defesa.\nA enxada se quebra e o Homem com o Machado te acerta com o cabo e você desmaia.")
                                 return "Desmaio"
@@ -105,36 +105,41 @@ def celeiro():
                                 return "Alarmado"
         # No primeiro andar
         else:
-            print("\nVocê precisa se proteger o homem com machado está vindo te matar. Você pode tirar um cavalo do celeiro e fugir mesmo sem saber\ncomo cavalgar ou pode se esconder por entre o monte de palha. Fugir ou Esconder? F / E")
+            print("\nVocê precisa se proteger o homem com machado está vindo te matar. Você pode tirar um cavalo do celeiro e fugir mesmo sem saber\ncomo cavalgar ou pode se esconder por entre o monte de palha. Fugir ou Esconder? F / e - Sem")
             
             while True:
                 x = input()
                 if x.capitalize() == 'F':
                     break
-            if x.capitalize() is 'F':
-                print("\nO cavalo está sem cela. Montar sem cela ou procurar a cela? S / C")
+            # Pé-de-Pano meu amigo
+            if x.capitalize() == 'F':
+                print("\nO cavalo está sem cela. Montar sem cela ou procurar a cela? S / c - Sem")
             
                 while True:
                     x = input()
                     if x.capitalize() == 'S':
                         break
-                if x.capitalize() is 'S':
+                # Para quê serve a cela?!
+                if x.capitalize() == 'S':
                     print("\nO cavalo se irrita, relincha e empina, você se afasta e esbarra no Homem com o Machado,\nele move o machado para te atacar. Você abaixa ou pula para trás? B / P")
 
                     while True:
                         x = input()
                         if x.capitalize() == 'B':
                             break
-                        if x.capitalize() is 'B':
-                            print("Você desvia e se esgueira para fora. O cavalo irritadiço faz o Homem deixar o machado cair. Você aproveita o momento para...\nAtacar ou Fugir? A / F")
+                    # Desviando do Machado
+                    if x.capitalize() == 'B':
+                        print("Você desvia e se esgueira para fora. O cavalo irritadiço faz o Homem deixar o machado cair. Você aproveita o momento para...\nAtacar ou Fugir? A / f - Sem")
 
-                            while True:
-                                x = input()
-                                if x.capitalize() == 'A':
-                                    break
-                            if x.capitalize() is 'A':
-                                print("Ao avançar em sua direção o Homem olha para você e mesmo por baixo da máscara os olhos dele fixos em você te deixam congelado.")
-                                return "Medo"
+                        while True:
+                            x = input()
+                            if x.capitalize() == 'A':
+                                break
+                        # Vou Lutar
+                        if x.capitalize() == 'A':
+                            print("Ao avançar em sua direção o Homem olha para você e mesmo por baixo da máscara os olhos dele fixos em você te deixam congelado.")
+                            return "Medo"
+                # Caindo do cavalo
                 else:
                     print("A cela está sobre a divisória, você a joga por cima do cavalo apressadamente e sobe no cavalo\nsem jeito você tenta fazer o cavalo andar, mas nada acontece.")
                     print("O Homem com o Machado entra no celeiro e você bate com força no dorso do cavalo que sai disparado.\nO Homem com o Machado atinge o cavalo que cai com um som agudo de dor. Você está bem apesar de tudo.")
@@ -147,15 +152,16 @@ def celeiro():
                             return "Decaptação"
                         elif x.capitalize() == 'N':
                             print("Sem escolha você decide confrontá-lo; o machado dele ficou preso ao cavalo, você pega o machado ou vai no X-1? M / X")
-
-                            while True:
-                                x = input()
-                                if x.capitalize() == 'M':
-                                    print("O cavalo ainda vivo e com dor reage por reflexo quando você puxa o machado\nele te dá um coice que te derruba.")
-                                    return "Inconsciênte"
-                                elif x.capitalize() == 'X':
-                                    print("Você se põe em posição o seu oponente não se move, apenas te observa. Dá um passo para trás e some dentro do celeiro.")
-                                    return "Sobrevivente"
+                            x = input()
+                            if x.capitalize() == 'M' or x.capitalize() == 'X':
+                                break
+                    # O machado é meu
+                    if x.capitalize() == 'M':      
+                        print("O cavalo ainda vivo e com dor reage por reflexo quando você puxa o machado\nele te dá um coice que te derruba.")
+                        return "Inconsciênte"
+                    elif x.capitalize() == 'X':
+                        print("Você se põe em posição o seu oponente não se move, apenas te observa. Dá um passo para trás e some dentro do celeiro.")
+                        return "Sobrevivente"
             
     # Fora do Celeiro
     else:
@@ -180,9 +186,7 @@ def celeiro():
                     print("Você esbarra no cadáver que você matou e é atingido no peito pela faca e morre")
                     return "Esfaqueado"
 
-
-os.system('clear') or None
-
+                
 l = list()
 n = int(input("Quantas pessoas vão jogar? "))
 r = {}
@@ -192,6 +196,7 @@ for j in range(n):
 
 for e in range(n):
     r[l[e]] = celeiro().upper()
+    os.system('clear') or None
     
 # Os elementos da lista serão o conteúdo do dicionário.
 #dic = { 1: l[0], 2: l[1] }
