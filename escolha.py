@@ -1,3 +1,7 @@
+#import os
+
+#os.system('clear') or None # Limpa a tela do console.
+
 def preludio():
     print("Prelúdio: ")
 
@@ -177,5 +181,22 @@ def celeiro():
                     return "Esfaqueado"
 
 
-print("\n\n" + celeiro().upper())
+os.system('clear') or None
+
+l = list()
+n = int(input("Quantas pessoas vão jogar? "))
+r = {}
+
+for j in range(n):
+    l.append(input())
+
+for e in range(n):
+    r[l[e]] = celeiro().upper()
+    
+# Os elementos da lista serão o conteúdo do dicionário.
+#dic = { 1: l[0], 2: l[1] }
+
+for k in r:
+  print(k, r[k])
+
 
