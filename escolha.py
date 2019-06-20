@@ -1,4 +1,5 @@
 import os
+import random
 
 #os.system('clear') or None # Limpa a tela do console.
 
@@ -32,7 +33,7 @@ def celeiro():
         # No segundo andar
         if x.capitalize() == 'S':
             print("\nPela janela do segundo andar você vê um homem segurando um machado indo rumo ao celeiro.")
-            print("Fugir ou Esconder-se?\nF / e - Sem")
+            print("Fugir ou Esconder-se?\nF / E")
             
             while True:
                 x = input()
@@ -87,7 +88,7 @@ def celeiro():
                         return "Morri"
             # Esconde
             else:
-                print("Você olha ao redor e vê uma caminhonete e mais afastado uma sala que parece ser uma oficina.\nPara onde você vai? C / O")
+                print("\nVocê olha ao redor e vê uma caminhonete e mais afastado uma sala que parece ser uma oficina.\nPara onde você vai? C / O")
 
                 while True:
                     x = input()
@@ -95,7 +96,7 @@ def celeiro():
                         break
                     # Na caminhonete
                     if x.capitalize() == 'C':
-                        print("Você se entra na caçamba da caminhonete e põe a capa por cima.\nO Homem com o Machado está por perto e você olha na caçamba por algo para se defender se preciso.")
+                        print("\nVocê se entra na caçamba da caminhonete e põe a capa por cima.\nO Homem com o Machado está por perto e você olha na caçamba por algo para se defender se preciso.")
                         print("Sem querer você chuta a lateral da caminhote e o alarme dispara\no machado penetra a caçamba, mas não te acerta. Então a capa é rasgada e novamente você escapa.")
                         print("Saltar para fora ou ficar na caminhonete? S / F")
 
@@ -114,6 +115,31 @@ def celeiro():
                                 print("A próxima machadada é certeira")
                                 continua()
                                 return "Alarmado"
+                    
+                    
+                    # Na Oficina ???
+                    else:
+                        print("\nVocê corre para a pequena sala no canto, sobre a " +
+                        "mesa há um martelo e uma serra, na parede oposta há pistola " +
+                        "de pregos. O que você pega; martelo, serra ou pistola de " + 
+                        "pregos?\nM / S / P")
+
+                        while True:
+                            x = input()
+                            if x.capitalize() == 'M' or x.capitalize() == 'S' or x.capitalize() == 'P':
+                                break
+                        if x.capitalize() == 'M':
+                            print("\n'Um martelo contra um machado?' - você pensa. " +
+                            "Decidido a trocar pela pistola. Mas já era tarde, seu " +
+                            "braço foi cortado fora, enquanto você grita de dor leva " +
+                            "outra machadada na perna. Conforme seu corpo diminui sua dor aumenta.")
+                            continua()
+                            return "Desmembrado"
+                        elif x.capitalize() == 'S':
+                            print()
+                        else:
+                            print()
+
         # No primeiro andar
         else:
             print("\nVocê precisa se proteger o homem com machado está vindo te matar. Você pode tirar " +
@@ -227,9 +253,12 @@ while n <= 0 or n > 10:
 for j in range(n):
     l.append(input())
 
+random.shuffle(l, random=None)
 os.system('clear') or None
 
+print("Vez de ", end="")
 for e in range(n):
+    print(l[e])
     r[l[e]] = celeiro().upper()
     os.system('clear') or None
     
